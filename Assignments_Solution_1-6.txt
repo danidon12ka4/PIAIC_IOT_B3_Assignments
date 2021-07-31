@@ -1,0 +1,258 @@
+Assignment # 1 
+ 
+Q # 1. Write a Rust program, which prints “Hello, world!”. 
+fn main() {
+    println!("Hello, world!");
+}
+
+Assignment # 2 Due Date October 25, 2019 
+  Q # 1. Write a Rust program to perform mathematical operations between two numbers. 
+Declare two integer variables and assign some values to them. Then print the result of addition, 
+subtraction, division, and multiplication in between these two variables. 
+fn main() {
+    let number_1=22;
+    let number_2=11;
+    let addition=number_1 + number_2;
+    let subtraction=number_1 - number_2;
+    let multiplication=number_1 * number_2;
+    let division=number_1 / number_2;
+
+    println!("Addition: {}",addition);
+    println!("Subtraction: {}",subtraction);
+    println!("Multiplication: {}",multiplication);
+    println!("Division: {}",division);
+  
+}
+Q # 2. Write a Rust program and declare a tuple for data of a Fruit name, its weight and its                  
+price. Destructure the tuple in separate variables and print them on your screen/terminal.
+fn main() {
+
+let tup=("Apple",2,240);
+    //Fruit name  Weight Price
+let (fruit_name,fruit_weight,fruit_price)=tup; 
+println!("Fruit Name: {}",fruit_name);
+println!("Fruit Weight: {}",fruit_weight);
+println!("Fruit Price: {}",fruit_price);
+
+}
+Q # 3. Write a Rust program by initializing an array of cricket team’s names, and another array               with their year of winning the world cup. Print the data as below:  
+Output be like:
+ Cricket Team: Pakistan - Year: 1992 
+Cricket Team: SriLanka - Year: 1996 (
+Note: For the sake of simplicity, limit only 5 teams’ names.)
+fn main() {
+  
+  let teams=["West Indies","West Indies","India","Australia","Pakistan"];
+  let winning_year=["1975","1979","1983","1987","1992"];
+  println!("List of first 5 Cricket Wold Cup Winners");
+  for a in 0..5 {
+      
+      println!("Cricket Team: {0} - Year: {1}", teams[a], winning_year[a]);}
+}
+  
+Assignment # 3 Due Date October 31, 2019 
+  Q # 1. BMI Calculator : Write a Rust program, that get input height (in cm) and weight (in kg) from user to calculate body mass index. Use if condition to check if the BMI is <18.5, print underweight, if BMI is >18.5 and <25, print Normal weight, if BMI is >25 print overweight. (input hint: use std::io;  io::stdin(), for string to integer conversion: parse() ). Program Sample 1: Enter Height in Cm: 180 Enter Weight in Kg: 75 Your BMI is 23.15 Reference: https://www.thecalculatorsite.com/articles/health/bmi-formula-for-bmi-calculations.php
+use std::io;
+
+fn main() {
+    let mut height = String::new();
+    println!("Enter Height in Cm:");
+    io::stdin().read_line(&mut height)
+        .ok()
+        .expect("Couldn't read line");    
+    let h_integer:u32 = height.trim().parse()
+            .expect("Please enter a number digts only");
+   
+   let mut weghit = String::new();
+    println!("Enter Weight in Kg:");
+    io::stdin().read_line(&mut weghit)
+        .ok()
+        .expect("Couldn't read line");    
+    let w_integer:u32 = weghit.trim().parse()
+            .expect("Please enter a number digts only");
+    let a=100;
+    let mut height1 = h_integer as f64/a as f64;
+    let height2=height1 as f64*height1 as f64; 
+    let bmi=w_integer as f64/height2 as f64;
+    
+    if bmi<18.5{
+        println!("UnderWeiht")
+    }
+    if bmi>18.5 && bmi<25.0{
+        println!("Normal Weiht")
+    }if bmi>25.0{
+        println!("OverWeiht")
+    }
+}
+Q # 2. Write a Rust program, use only while loop, print from Number 1 to 10, and make a                 conditional IF for printing a custom message Special Security check, on Number 3, 7 and 10,  ( hint: use while loop and increment a variable, for custom message: use IF )
+fn main() {
+   let mut value:u8 = 1;
+   while value <11 {
+       
+        
+        
+        if value==3||value==7||value==10{
+           println!(" â€‹Special Security check");
+
+
+        }else{ println!("Hello World # {}",value);}
+        
+        value = value + 1;
+        }
+        
+    }
+Assignment # 4 Due Date December 01, 2019
+Q # 1. Write a rust program, define a function that receives one argument of any suitable data type and print whether the number is positive, negative or equal to zero. (hint: if/else)
+fn main() {
+   check_num(1.1);
+}
+
+fn check_num(number: f32){
+    if number<0.0{
+        println!("Number is Negative");
+    }
+    if number>0.0{
+        println!("Number is Positive") ;
+    }
+    if number==0.0{
+        println!("Number is Equal to Zero") ;
+    }
+
+}
+Q # 2. Write a rust program, define a function that receives 3 arguments of different data types (integer, float, boolean) and print them on the console.
+fn main() {
+   check_num(1,2.2,true);
+}
+
+fn check_num(inte: i32,flo: f32,boolean: bool ){
+    
+        println!("INTEGER: {}",inte);
+   
+    
+        println!("FLOAT: {}",flo) ;
+    
+    
+        println!("BOOLEAN: {}",boolean) ;
+    
+
+}
+
+Q # 3. Write a rust program, define a function that receives a numberand return the number               itself and its square by using tuple.
+fn main() {
+   println!("square is: {:?}", square(5));
+}
+fn square(number: i32) ->(i32,i32)
+{let number_square=number*number;
+(number,number_square)
+}
+Assignment # 5
+Due Date December 08, 2019
+Q # 1. Write a program to know the result of the test (Pass/Fail) by using a function, and
+perform the following operations: get input name (in String), subject 1 marks and subject 2
+marks from user (Note: Consider marks of only 2 subjects for the sake of simplicity. Maximum
+marks are 100 for each subject.)
+a. Write a user defined function that receive 3 arguments (marks and student name)
+b. in user defined function Calculate the percentage and print it along with student
+name, return percentage to main function
+c. In main function If percentage is >= 70, Print Pass, if <70 then print Fail.
+use std::io;
+fn main() {
+ 
+ //let student_name = String::from("Daniyal");
+    let mut student_name = String::new();
+    println!("Enter Student Name" );
+    io::stdin().read_line(&mut student_name)
+    .ok()
+    .expect("Couldn't read line"); 
+    
+   let mut input1 = String::new();
+    println!("Enter Subject 1 Obtained Marks" );
+    io::stdin().read_line(&mut input1)
+    .ok()
+    .expect("Couldn't read line"); 
+    let marks1_integer:f32 = input1.trim().parse()
+    .expect("Please enter a number digts only");
+   //222
+   let mut input2 = String::new();
+    println!("Enter Subject 2 Obtained Marks" );
+    io::stdin().read_line(&mut input2)
+    .ok()
+    .expect("Couldn't read line"); 
+    let marks2_integer:f32 = input2.trim().parse()
+    .expect("Please enter a number digts only");
+   
+   
+   //1111
+   let obtained_percentage:f32= check_result(student_name,marks1_integer,marks2_integer);
+   if obtained_percentage>=70.0{
+    println!("PASS")
+   }
+   else{
+    println!("FAIL")
+   }
+
+}
+fn check_result(student_name: String,marks1: f32, marks2: f32) ->(f32)
+{
+    let obtained_marks:f32=marks1+marks2;
+    let total_makrs:f32=200.0;
+    let percentage1:f32=obtained_marks/total_makrs;
+    let percentage:f32 = percentage1*100.0;
+
+    println!("Student Name: {}",student_name);
+    println!("Subject 1 Marks {}",marks1);
+    println!("Subject 2 Marks {}",marks2);
+    println!("Total Percentage {}",percentage);
+    (percentage)
+}
+
+Assignment # 6
+Due Date December 22, 2019
+Q. Write a Rust Program,
+1) define a custom datatype using Struct with your favorite name. Which contains 3 fields, and
+1 should be String Type.
+2) In main function:
+A. Create an instance of the above defined struct
+B. Print complete instance
+C. Print instance by calling its fields.
+D. create another instance by using fields of first instance
+3) define user defined function, User defined function should receive some arguments and
+return an instance of your above defined struct.
+4) in main function call user defined function, Print instance returned by the user defined
+function.
+#[derive(Debug)]
+struct User {
+    username: String,
+    sign_in_count: u64,
+    active: bool,
+}
+
+fn main() {
+    let user_1 = User{
+        username:String::from("Daniyal"),
+        sign_in_count: 2,
+        active:true,
+    };
+    println!("{:#?}",user_1 );
+    println!("{:#?}",user_1.username );
+    println!("{:#?}",user_1.sign_in_count );
+    println!("{:#?}",user_1.active );
+
+    let user_2 = User{
+        username:String::from("Umer"),
+        sign_in_count: 1,
+        active:false,
+    };
+    println!("{:#?}",user_2 );
+    println!("{:#?}",build_user(3,"Asad".to_string()));
+}
+
+fn build_user(sign_in_count: u64, username: String) -> User {
+    User {
+        username: username,
+        active: true,
+        sign_in_count: sign_in_count,
+    }
+}
+
+
